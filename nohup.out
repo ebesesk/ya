@@ -1,0 +1,15 @@
+[2022-07-22 11:32:00 +0900] [4077] [INFO] Starting gunicorn 20.1.0
+[2022-07-22 11:32:00 +0900] [4077] [INFO] Listening at: http://127.0.0.1:8000 (4077)
+[2022-07-22 11:32:00 +0900] [4077] [INFO] Using worker: uvicorn.workers.UvicornWorker
+[2022-07-22 11:32:00 +0900] [4078] [INFO] Booting worker with pid: 4078
+[2022-07-22 11:32:00 +0900] [4079] [INFO] Booting worker with pid: 4079
+[2022-07-22 11:32:02 +0900] [4078] [INFO] Started server process [4078]
+[2022-07-22 11:32:02 +0900] [4078] [INFO] Waiting for application startup.
+[2022-07-22 11:32:02 +0900] [4078] [INFO] Application startup complete.
+[2022-07-22 11:32:02 +0900] [4079] [INFO] Started server process [4079]
+[2022-07-22 11:32:02 +0900] [4079] [INFO] Waiting for application startup.
+[2022-07-22 11:32:02 +0900] [4079] [INFO] Application startup complete.
+[2022-07-22 11:32:06 +0900] [4077] [INFO] Handling signal: int
+[2022-07-22 11:32:06 +0900] [4077] [WARNING] Worker with pid 4078 was terminated due to signal 3
+[2022-07-22 11:32:06 +0900] [4077] [WARNING] Worker with pid 4079 was terminated due to signal 3
+[2022-07-22 11:32:06 +0900] [4077] [INFO] Shutting down: Master

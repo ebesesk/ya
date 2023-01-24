@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Chat</title>
+{% endblock %}
+
+{% block content %}
+
+<h1>WebSocket Chat</h1>
+<form action="" onsubmit="sendMessage(event)">
+<input type="text" id="messageText" autocomplete="off"/>
+<button>Send</button>
+</form>
+<ul id='messages'>
+</ul>
+
+{% block script %}
+<script src="{{ url_for('static', path='js/websocket_chat.js') }}"></script>
+{% endblock %}
+
+{% endblock %}

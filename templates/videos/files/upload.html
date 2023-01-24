@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Videos Album</title>
+<style>
+    body {
+        margin: 0;
+    }
+    .container {
+        width: 100vw;
+        height: 90vh;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container align-middle">  
+    <br><br><br>    
+    <form action="/videos/uploadfiles/" enctype="multipart/form-data" method="post">
+        <div class="input-group text-center">
+            <input name="files" type="file" class="form-control" multiple>
+            <input type="submit" class="btn btn-outline-secondary">
+        </div>
+    </form>
+{% endblock %}

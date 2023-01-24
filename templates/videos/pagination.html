@@ -1,0 +1,27 @@
+<nav aria-label="Page navigation example align-items-center">
+    {{page_num['page']}}
+    
+    <ul class="pagination pagination-sm justify-content-center">
+      {% set max_page = page_num['pages']|max %}
+      {% set min_page = page_num['pages']|min %}
+      {% if page_num != False %}
+      {% for page in page_num['pages'] %}
+      {% if page == items.page %}
+      <li class="page-item active" aria-current="page">
+        <a class="page-link">{{page}}</a>
+      </li>
+      {% else %}
+      <li class="page-item">
+        <a class="page-link" href="/videos/{{ page_num['name'][0] }}{{ page }}{{ page_num['name'][1] }}">{{page}}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      {% endif %}
+      
+    </ul>
+    <ul class="pagination pagination-sm justify-content-center">
+      
+      <small>total: {{items.total}} page: {{ items.page }} size: {{ page_num.pagesize }} pages: {{ items.total/page_num.pagesize | round(1) }}</small><br>
+    </ul>
+  </nav>

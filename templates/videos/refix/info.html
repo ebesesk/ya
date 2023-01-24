@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Album example · Bootstrap v5.2</title>
+{% endblock %}
+{% block content %}
+    <script src="/static/js/freezevideos.js"></script>
+    <!-- Page Content -->
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-sm-11">
+                <br>
+                <h5>파일정보</h5>
+                
+                {% if filenames %}
+                <h6><b>Upload Files</b></h6>
+                {% for filename in filenames %}
+                {{ filename }}
+                {% endfor %}
+                {% endif %}
+
+                <h6><b>videos</b></h6>
+
+                파일: <b>{{ items['videos']['cnt'] }}</b>&nbsp&nbsp&nbsp 용량: <b>{{ items['videos']['size'] }}</b><br>
+                <h6><b>gif</b></h6> 
+                파일: <b>{{ items['gif']['cnt'] }}</b>&nbsp&nbsp&nbsp 용량: <b>{{ items['gif']['size'] }}</b><br>
+                <h6><b>webp</b></h6> 
+                파일: <b>{{ items['webp']['cnt'] }}</b>&nbsp&nbsp&nbsp 용량: <b>{{ items['webp']['size'] }}</b><br>
+                <h6><b>db</b></h6> 
+                라인: <b>{{ items['webp']['cnt'] }}</b><br>
+                <br>
+                
+                {% if msgs %}
+                <h6><b>VIDEO 삭제</b></h6>
+                {% for msg in msgs%} 
+                {{ msg }}<br><br>
+                {% endfor %}
+                {% else %}
+                {% endif %}
+
+
+                <h6><b>추가</b></h6>
+                <b>gif</b><br>
+                {% for i in items['add']['add_gif']%} 
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>webp</b> <br>
+                {% for i in items['add']['add_webp']%} 
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>db</b> <br>
+                {% for i in items['add']['add_db']%} 
+                {{ i }}<br>
+                {% endfor %}
+                <br>
+                
+                <h6><b>삭제</b></h6>
+                
+                <b>gif, webp</b> <br>
+                {% for i in items['delete']['wastes']%} 
+                {{ i }}<br>
+                {% endfor %}
+                
+                
+                
+                <b>db</b> <br>
+                {% for i in items['delete']['del_db']%}
+                {{ i }}<br>
+                {% endfor %}
+                <br>
+                
+                <h6><b>에러</b></h6>
+                
+                <h6><b>integv_error</b></h6>
+                
+                <b>동영상불량</b> <br>
+                {% for i in items['integv_error']['corrupted']%}
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>OverflowError</b> <br>
+                {% for i in items['integv_error']['OverflowError'] %}
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>NotImplementedError</b> <br>
+                {% for i in items['integv_error']['NotImplementedError'] %}
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>FileNotFoundError</b> <br>
+                {% for i in items['integv_error']['FileNotFoundError'] %}
+                {{ i }}<br>
+                {% endfor %}
+
+                <br>
+                
+                <h6><b>opencv_error</b></h6>
+                
+                <b>gif 제작 실패</b> <br>
+                {% for i in items['opencv_error']['webp_faile'] %}
+                {{ i }}<br>
+                {% endfor %}
+
+                <b>webp 제작 실패</b> <br>
+                {% for i in items['opencv_error']['webp_faile'] %}
+                {{ i }}
+                {% endfor %}
+                <br>
+            </div>
+       </div>
+    </div>
+{% endblock %}

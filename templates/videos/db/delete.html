@@ -1,0 +1,11 @@
+<div class="collapse" id="delete{{ loop.index }}">
+    <div class="card card-body mx-0">
+        <form class="container-fluid delete" action="/videos/delete" id="delForm{{ loop.index }}">
+            <input class="form-check-input" type="checkbox" name="dbid" value="{{ item['dbid']|quote }}" id="del">
+            <small>{{ item['dbid'] }}</small><br>
+            <button  class="btn btn-danger btn-sm py-0" type="submit" for="del">
+                DEL
+            </button>
+        </form>
+    </div>
+  </div>

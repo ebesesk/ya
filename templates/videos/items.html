@@ -1,0 +1,70 @@
+{% for item in items.items[:page_num.pagesize] %}
+{% set subdir = item['dbid'].split('/') %}
+{% set gif = item['dbid'].replace(subdir[0]+'/', subdir[0] + '/gif/') %}
+{% set gif = gif[:gif.rfind('.')] + '.gif' %}
+{% set webp = item['dbid'].replace(subdir[0]+'/', subdir[0] + '/webp/') %}
+{% set webp = gif[:gif.rfind('.')] + '.webp' %}
+
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1 dx-0 px-1 thumb ">
+    <img class="img-thumbnail my-class-2" src="/movies/{{gif|quote}}" alt="" data-bs-toggle="tooltip" title="{{ item['dbid'] }}">
+    <script>new Freezeframe({selector: '.my-class-2', trigger: 'click'});</script>
+    
+    <div class="row">
+
+        <div class="col-2">
+            {% if is_token %}
+            <button class="btn btn-default btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ loop.index }}" aria-expanded="false" aria-controls="collapseExample" >
+            DB
+            </button>
+            {% endif %}
+        </div>
+
+        <div class="col-8">
+            <b><small class="text-danger">
+            {% set m=item.showtime//60 %}
+            {% set s=item.showtime%60 %}
+            {% set bitrate='{0:,.0f}'.format(item.bitrate/1000) %}
+            {% set size = '{0:,.0f}'.format(item.filesize/1000000) %}
+            <a href="test:// http://{{subdir[0]|quote}}/{{subdir[1]|quote}}" class="text-decoration-none">
+                {{item.width}}x{{item.height}} {{m}}분{{s}}초 {{bitrate}}kbps {{size}}MB  
+            </a><span class="text-danger">
+            {{item['cdate'].strftime('%y.%m.%d.%H:%M') if item['cdate'] != None else ' '}}
+            {{'화질'+item['display_quality'] if item['display_quality'] != None else ' '}}
+            {{item['country'] if item['country'] != None else ' '}}
+            {{'얼굴'+item['face'] if item['face'] != None else ' '}}
+            {{item['look'] if item['look'] != None else ' '}}
+            {{item['age'] if item['age'] != None else ' '}}
+            {{item['pussy'] if item['pussy'] != None else ' '}}
+            {{item['etc'] if item['etc'] != None else ' '}}
+            {{'교복' if item['school_uniform'] != None else ''}}
+            {{'엉덩이' if item['hip'] != None else ''}}
+            {{'단체' if item['group'] != None else ''}}
+            {{'임신' if item['pregnant'] != None else ''}}
+            {{'대화' if item['conversation'] != None else ''}}
+            {{'레즈' if item['lesbian'] != None else ''}}
+            {{'만화' if item['ani'] != None else ''}}
+            {{'입으로' if item['oral'] != None else ''}}
+            {{'자위' if item['masturbation'] != None else ''}}
+            {{'마사지' if item['massage'] != None else ''}}
+            {{'회사원' if item['uniform'] != None else ''}}
+            {{'family' if item['family'] != None else ''}}
+            {{item['ad_start'] if item['ad_start'] != None else ''}}
+            {{item['ad_finish'] if item['ad_finish'] != None else ''}}
+            {{'❤' if item['star'] == 1}}
+            {{'❤❤' if item['star'] == 2}}
+            {{'❤❤❤' if item['star'] == 3}}
+            {{'❤❤❤❤' if item['star'] == 4}}
+            {{'❤❤❤❤❤' if item['star'] == 5}}
+            {{item['cdate'] if item['cdate'] != None else ''}}
+            </small></b>
+        </div>
+        <div class="col-2">
+            <a href="/videos/strm/?dbid={{ subdir[0]|quote}}/{{subdir[1]|quote }}" style="text-decoration:none" target="_blank"> ▶ </a>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapseExample{{ loop.index }}">
+        <small>{% include 'videos/db/update.html' %}</small>
+    </div>
+</div>
+{% endfor %}

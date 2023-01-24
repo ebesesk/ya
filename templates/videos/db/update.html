@@ -1,0 +1,450 @@
+                {% if is_token %}
+                <div class="card card-body">
+                    <form class="container-fluid update" action="/videos/update" target="iframe{{ loop.index }}" id="form{{ loop.index }}">
+                    <!-- <form class="container-fluid update" id="form{{ loop.index }}"> -->
+                        <div class="input-group text-wrap">
+                            <div>
+                                <small><input type="text" name="dbid" value="{{ item['dbid'] }}" class="form-control input-sm py-0" aria-label="Username" aria-describedby="basic-addon1" >
+                                    국가</small>
+                                {% if item['country'] == "한국" %}
+                                <input class="form-check-input" name="country" type="radio" value="한국" id="101" checked>
+                                {% else %}
+                                <input class="form-check-input" name="country" type="radio" value="한국" id="101" >
+                                {% endif %}
+                                
+                                <label class="form-check-label" for="101">
+                                    한국
+                                </label>
+
+                                {% if item['country'] == "일본" %}
+                                <input class="form-check-input" name="country" type="radio" value="일본" id="102" checked>
+                                {% else %}
+                                <input class="form-check-input" name="country" type="radio" value="일본" id="102">
+                                {% endif %}
+                                <label class="form-check-label" for="102">
+                                    일본
+                                </label>
+
+
+                                {% if item['country'] == "중국" %}
+                                <input class="form-check-input" name="country" type="radio" value="중국" id="103" checked>
+                                {% else %}
+                                <input class="form-check-input" name="country" type="radio" value="중국" id="103">
+                                {% endif %}
+                                <label class="form-check-label" for="103">
+                                    중국
+                                </label><br>
+
+
+
+                                {% if item['country'] == "서양" %}
+                                <input class="form-check-input" name="country" type="radio" value="서양" id="104" checked>
+                                {% else %}
+                                <input class="form-check-input" name="country" type="radio" value="서양" id="104">
+                                {% endif %}
+                                <label class="form-check-label" for="104">
+                                    서양
+                                </label>
+
+
+                                {% if item['country'] == "기타" %}
+                                <input class="form-check-input" name="country" type="radio" value="기타" id="105" checked>
+                                {% else %}
+                                <input class="form-check-input" name="country" type="radio" value="기타" id="105">
+                                {% endif %}
+
+                                <label class="form-check-label" for="105">
+                                    기타
+                                </label>
+
+
+                                <input class="form-check-input" name="country" type="radio" value="" id="1005">
+                                <label class="form-check-label" for="1005">
+                                    DB삭제
+                                </label>
+                                <hr />
+
+
+
+                                <small >화질</small>
+                                {% if item['display_quality'] == "아주좋음" %}
+                                <input class="form-check-input" name="display_quality" value="아주좋음" type="radio" id="106" checked>
+                                {% else %}
+                                <input class="form-check-input" name="display_quality" value="아주좋음" type="radio" id="106">
+                                {% endif %}
+                                <label class="form-check-label" for="106" >
+                                    아주좋음
+                                </label>
+                                
+                                
+                                
+                                {% if item['display_quality'] == "좋음" %}
+                                <input class="form-check-input" name="display_quality" value="좋음" type="radio" id="107" checked>
+                                {% else %}
+                                <input class="form-check-input" name="display_quality" value="좋음" type="radio" id="107">
+                                {% endif %}
+                                <label class="form-check-label" for="107">
+                                    좋음
+                                </label><br>
+                                
+                                
+                                {% if item['display_quality'] == "보통" %}
+                                <input class="form-check-input" name="display_quality" value="보통" type="radio" id="108" checked>
+                                {% else %}
+                                <input class="form-check-input" name="display_quality" value="보통" type="radio" id="108">
+                                {% endif %}
+                                <label class="form-check-label" for="108">
+                                    보통
+                                </label>
+                                
+                                
+                                {% if item['display_quality'] == "흐릿" %}
+                                <input class="form-check-input" name="display_quality" value="흐릿" type="radio" id="109" checked>
+                                {% else %}
+                                <input class="form-check-input" name="display_quality" value="흐릿" type="radio" id="109">
+                                {% endif %}
+                                <label class="form-check-label" for="109">
+                                    흐릿
+                                </label>
+                                
+                                
+                                {% if item['display_quality'] == "폐기" %}
+                                <input class="form-check-input" name="display_quality" value="폐기" type="radio"  id="110" checked>
+                                {% else %}
+                                <input class="form-check-input" name="display_quality" value="폐기" type="radio"  id="110">
+                                {% endif %}
+                                <label class="form-check-label" for="110">
+                                    폐기
+                                </label>
+
+                                <input class="form-check-input" name="display_quality" type="radio" value="" id="1010">
+                                <label class="form-check-label" for="1010">
+                                    DB삭제
+                                </label>
+
+
+                                <hr />
+
+
+
+
+                                <small>나이</small>
+                                {% if item['age'] == "어림" %}
+                                <input class="form-check-input" name="age"  type="radio" value="어림" id="111" checked>
+                                {% else %}
+                                <input class="form-check-input" name="age"  type="radio" value="어림" id="111">
+                                {% endif %}
+                                <label class="form-check-label" for="111">
+                                    어림
+                                </label>
+                                
+                                
+                                
+                                {% if item['age'] == "학생" %}
+                                <input class="form-check-input" name="age"  type="radio" value="학생" id="112" checked>
+                                {% else %}
+                                <input class="form-check-input" name="age"  type="radio" value="학생" id="112">
+                                {% endif %}
+                                <label class="form-check-label" for="112">
+                                    학생
+                                </label>
+                                
+                                
+                                
+                                {% if item['age'] == "아가씨" %}
+                                <input class="form-check-input" name="age"  type="radio" value="아가씨" id="113" checked>
+                                {% else %}
+                                <input class="form-check-input" name="age"  type="radio" value="아가씨" id="113">
+                                {% endif %}
+                                <label class="form-check-label" for="113">
+                                    아가씨
+                                </label><br>
+                                
+                                
+                                {% if item['age'] == "아줌마" %}
+                                <input class="form-check-input" name="age"  type="radio" value="아줌마" id="114" checked>
+                                {% else %}
+                                <input class="form-check-input" name="age"  type="radio" value="아줌마" id="114">
+                                {% endif %}
+                                <label class="form-check-label" for="114">
+                                    아줌마
+                                </label>
+                                
+                                
+                                
+                                {% if item['age'] == "나이많음" %}
+                                <input class="form-check-input" name="age"  type="radio" value="나이많음" id="116" checked>
+                                {% else %}
+                                <input class="form-check-input" name="age"  type="radio" value="나이많음" id="116">
+                                {% endif %}
+                                <label class="form-check-label" for="116">
+                                    나이많음
+                                </label>
+
+                                <input class="form-check-input" name="age" type="radio" value="" id="1016">
+                                <label class="form-check-label" for="1016">
+                                    DB삭제
+                                </label>
+
+
+                                <hr />
+
+
+                                <small >얼굴</small>
+                                {% if item['face'] == "선명" %}
+                                <input class="form-check-input" name="face"  type="radio" value="선명" id="117" checked>
+                                {% else %}
+                                <input class="form-check-input" name="face"  type="radio" value="선명" id="117">
+                                {% endif %}
+                                <label class="form-check-label" for="117">
+                                    선명
+                                </label>
+                                
+                                
+                                {% if item['face'] == "흐릿" %}
+                                <input class="form-check-input" name="face"  type="radio" value="흐릿" id="118" checked>
+                                {% else %}
+                                <input class="form-check-input" name="face"  type="radio" value="흐릿" id="118">
+                                {% endif %}
+                                <label class="form-check-label" for="118">
+                                    흐릿
+                                </label>
+
+                                <input class="form-check-input" name="face" type="radio" value="" id="1018">
+                                <label class="form-check-label" for="1018">
+                                    DB삭제
+                                </label>
+
+                                <hr />
+
+                                <small>ㅂㅈ</small>
+                                {% if item['pussy'] == "선명" %}
+                                <input class="form-check-input" name="pussy"  type="radio" value="선명" id="122" checked>
+                                {% else %}
+                                <input class="form-check-input" name="pussy"  type="radio" value="선명" id="122">
+                                {% endif %}
+                                <label class="form-check-label" for="122">
+                                    선명
+                                </label>
+                                
+                                {% if item['pussy'] == "흐릿" %}
+                                <input class="form-check-input" name="pussy"  type="radio" value="흐릿" id="123" checked>
+                                {% else %}
+                                <input class="form-check-input" name="pussy"  type="radio" value="흐릿" id="123">
+                                {% endif %}
+                                <label class="form-check-label" for="123">
+                                    흐릿
+                                </label>
+
+                                <input class="form-check-input" name="pussy" type="radio" value="" id="1123">
+                                <label class="form-check-label" for="1123">
+                                    DB삭제
+                                </label>
+                                <hr />
+                                
+                                
+                                <small>외모</small>
+                                {% if item['look'] == "마름" %}
+                                <input class="form-check-input" name="look"  type="radio" value="마름" id="119" checked>
+                                {% else %}
+                                <input class="form-check-input" name="look"  type="radio" value="마름" id="119">
+                                {% endif %}
+                                <label class="form-check-label" for="119">
+                                    마름
+                                </label>
+                                
+                                {% if item['look'] == "보통" %}
+                                <input class="form-check-input" name="look"  type="radio" value="보통" id="120" checked>
+                                {% else %}
+                                <input class="form-check-input" name="look"  type="radio" value="보통" id="120">
+                                {% endif %}
+                                <label class="form-check-label" for="120">
+                                    보통
+                                </label>
+                                
+                                {% if item['look'] == "뚱" %}
+                                <input class="form-check-input" name="look"  type="radio" value="뚱" id="121" checked>
+                                {% else %}
+                                <input class="form-check-input" name="look"  type="radio" value="뚱" id="121">
+                                {% endif %}
+                                <label class="form-check-label" for="121">
+                                    뚱
+                                </label>
+
+
+                                <input class="form-check-input" name="look" type="radio" value="" id="1021">
+                                <label class="form-check-label" for="1021">
+                                    DB삭제
+                                </label>
+                                <hr />
+                                
+                                
+                                
+                                
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <small>처음광고</small>
+                                            {% if item['ad_start'] != None %}    
+                                            <input type="number" name="ad_start" value="{{ item['ad_start'] }}" class="form-control form-control-sm" id="124" placeholder="광고처음">
+                                            {% else %}
+                                            <input type="number" name="ad_start" value=0 class="form-control form-control-sm" id="124" placeholder="광고처음">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-sm">
+                                            <small>마지막광고</small>
+                                            {% if item['ad_finish'] != None %}    
+                                            <input type="number" name="ad_finish" value="{{ item['ad_finish'] }}" class="form-control form-control-sm py-0 my-0" id="125" placeholder="광고끝">
+                                            {% else %}
+                                            <input type="number" name="ad_finish" value=0 class="form-control form-control-sm py-0 my-0" id="125" placeholder="광고끝">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <small>별점</small><br>
+                                            <select class="form-select form-select-sm py-0" name="star" aria-label=".form-select-sm example">
+                                                {% if item['star'] != None %}
+                                                <option selected>{{item['star']}}</option>
+                                                {% else %}
+                                                <option selected>0</option>
+                                                {% endif %}
+                                                <option value=0>DB삭제</option>
+                                                <option value="1">❤</option>
+                                                <option value="2">❤❤</option>
+                                                <option value="3">❤❤❤</option>
+                                                <option value="4">❤❤❤❤</option>
+                                                <option value="5">❤❤❤❤❤</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% if item['school_uniform'] == True %}
+                                <input class="form-check-input" name="school_uniform" type="checkbox" value=True id="126" checked>
+                                {% else %}
+                                <input class="form-check-input" name="school_uniform" type="checkbox" value=True id="126">
+                                {% endif %}
+                                <label class="form-check-label" for="126">
+                                    교복
+                                </label>
+                                
+                                {% if item['hip'] == True %}
+                                <input class="form-check-input" name="hip" type="checkbox" value=True id="127" checked>
+                                {% else %}
+                                <input class="form-check-input" name="hip" type="checkbox" value=True id="127">
+                                {% endif %}
+                                <label class="form-check-label" for="127">
+                                    엉덩이
+                                </label>
+                                
+                                {% if item['group'] == True %}
+                                <input class="form-check-input" name="group" type="checkbox" value=True id="128" checked>
+                                {% else %}
+                                <input class="form-check-input" name="group" type="checkbox" value=True id="128">
+                                {% endif %}
+                                <label class="form-check-label" for="128">
+                                    단체
+                                </label>
+                                
+                                {% if item['pregnant'] == True %}
+                                <input class="form-check-input" name="pregnant" type="checkbox" value=True id="129" checked>
+                                {% else %}
+                                <input class="form-check-input" name="pregnant" type="checkbox" value=True id="129">
+                                {% endif %}
+                                <label class="form-check-label" for="129">
+                                    임신
+                                </label><br>
+                                
+                                {% if item['conversation'] == True %}
+                                <input class="form-check-input" name="conversation" type="checkbox" value=True id="130" checked>
+                                {% else %}
+                                <input class="form-check-input" name="conversation" type="checkbox" value=True id="130">
+                                {% endif %}
+                                <label class="form-check-label" for="130">
+                                    대화
+                                </label>
+                                
+                                {% if item['lesbian'] == True %}
+                                <input class="form-check-input" name="lesbian" type="checkbox" value=True id="131" checked>
+                                {% else %}
+                                <input class="form-check-input" name="lesbian" type="checkbox" value=True id="131">
+                                {% endif %}
+                                <label class="form-check-label" for="131">
+                                    레즈
+                                </label>
+                                
+                                {% if item['ani'] == True %}
+                                <input class="form-check-input" name="ani" type="checkbox" value=True id="132" checked>
+                                {% else %}
+                                <input class="form-check-input" name="ani" type="checkbox" value=True id="132">
+                                {% endif %}
+                                <label class="form-check-label" for="132">
+                                    만화
+                                </label><br>
+                                
+                                {% if item['oral'] == True %}
+                                <input class="form-check-input" name="oral" type="checkbox" value=True id="133" checked>
+                                {% else %}
+                                <input class="form-check-input" name="oral" type="checkbox" value=True id="133">
+                                {% endif %}
+                                <label class="form-check-label" for="133">
+                                    입으로
+                                </label>
+                                
+                                {% if item['masturbation'] == True %}
+                                <input class="form-check-input" name="masturbation" type="checkbox" value=True id="134" checked>
+                                {% else %}
+                                <input class="form-check-input" name="masturbation" type="checkbox" value=True id="134">
+                                {% endif %}
+                                <label class="form-check-label" for="134">
+                                    자위
+                                </label>
+                                
+                                {% if item['massage'] == True %}
+                                <input class="form-check-input" name="massage" type="checkbox" value=True id="135" checked>
+                                {% else %}
+                                <input class="form-check-input" name="massage" type="checkbox" value=True id="135">
+                                {% endif %}
+                                <label class="form-check-label" for="135">
+                                    마사지
+                                </label><br>
+                                {% if item['uniform'] == True %}
+                                <input class="form-check-input" name="uniform" type="checkbox" value=True id="136" checked>
+                                {% else %}
+                                <input class="form-check-input" name="uniform" type="checkbox" value=True id="136">
+                                {% endif %}
+                                <label class="form-check-label" for="136">
+                                    회사원
+                                </label>
+                                
+                                {% if item['family'] == True %}
+                                <input class="form-check-input" name="family" type="checkbox" value=True id="137" checked>
+                                {% else %}
+                                <input class="form-check-input" name="family" type="checkbox" value=True id="137">
+                                {% endif %}
+                                <label class="form-check-label" for="137">
+                                    family
+                                </label>
+                                <hr/>
+                                {% if etc_kwd %}
+                                {% for keyword in etc_kwd%}
+                                {{keyword}},
+                                {% endfor %}
+                                {% endif %}
+                                <div class="justify-content-center">
+                                    <small>
+                                    <input type="text" name="etc" value="{{ item['etc'] if item['etc'] != None else '' }}" class="form-control py-0" aria-label="Username" aria-describedby="basic-addon1">
+                                    
+                                    <button class="btn btn-primary btn-sm py-0" type="submit">DB입력</button>
+                                    <button type="reset" class="btn btn-primary btn-sm py-0">초기화</button>
+                                    <button class="btn btn-danger btn-sm py-0" type="button" data-bs-toggle="collapse" data-bs-target="#delete{{ loop.index }}" aria-expanded="false" aria-controls="delete">del</button>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {% include 'videos/db/delete.html' %}
+                    <div class="alert alert-success m-0 p-0 text-center msg{{ loop.index }}"></div>
+                </div>
+                {% endif %}    

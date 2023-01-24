@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>view</title>
+{% endblock %}
+{% block content %}
+    
+    {{ item|safe }}
+    <br><br>
+    <div class="container">
+        <div class="ratio ratio-4x3">
+            <video width="100%" height="100%" controls>
+                <source src="/movies/{{ item|quote }}" type="video/mp4" /> Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <script>
+        $(function () {
+            $("button").click(function () {
+                var src = $(this).text();
+                var html = `<video width="100%" height="100%" controls>\
+                <source src="${src}" type="video/mp4"/> Your browser does not support the video tag.\
+                </video>`
+                $("video").remove();
+                $(".video-player").append(html);
+            })
+        });
+    </script>    
+{% endblock %}

@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-11">
+        <ul class="nav nav-pills justify-content-end">
+            {% if is_token %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="login" href="/chats">CHAT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="login" href="/logout">LogOut</a>
+            </li>
+            <li class="nav-item align-self-center">
+                <a class="btn btn-sm" data-bs-toggle="collapse" href="#_dbquery" role="button" aria-expanded="false" aria-controls="dbquery">
+                SEARCH</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="login" href="/login">LogIn</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="/videos"><small>MAIN</small></a>
+            </li>
+            {% if is_token %}
+            <li class="nav-item dropdown align-self-center">
+                <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    VIDEOS
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/videos/all1?size=16"><small>ALL</small></a>
+                    <a class="dropdown-item" href="/videos/choice1?size=16"><small>CHOICE</small></a>
+                    <a class="dropdown-item" href="/videos/nys1?size=16"><small>NYS</small></a>
+                    <a class="dropdown-item" href="/videos/all_random/1?size=16"><small>ALL RENDOM</small></a>
+                    <a class="dropdown-item" href="/videos/choice_random/1?size=16"><small>CHOICE RANDOM</small></a>
+                    <a class="dropdown-item" href="/videos/nys_random/1?size=16"><small>NYS RANDOM</small></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/videos/refix">Refix Info</a>
+                    <a class="dropdown-item" href="/videos/files/">File Upload</a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    <div class="col-1">
+    </div>
+</div>
+{% if is_token %}
+<div>
+    {% include 'videos/db/query.html' %}
+</div>
+{% endif %}

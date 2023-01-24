@@ -1,0 +1,282 @@
+{% if is_token %}
+<div class="collapse w-130" id="_dbquery">
+    <div class="card card-body align-items-center">
+        <form class="container-fluid align-items-center" action="/videos/search/1?size=16&">
+            <div class="check_country">
+                <small >해상도&nbsp;</small>
+                <input class="form-check-input" name="resolution1" type="checkbox" value="high" id="1">
+                <label class="form-check-label" for="1">고&nbsp;</label>
+                
+                <input class="form-check-input" name="resolution2" type="checkbox" value="middle" id="2">
+                <label class="form-check-label" for="2">중&nbsp;</label>
+                
+                <input class="form-check-input" name="resolution3" type="checkbox" value="low" id="3">
+                <label class="form-check-label" for="3">저&nbsp;</label>
+
+
+
+                <hr/>
+            </div>
+
+            <div class="check_country">
+                <small >국가&nbsp;</small>
+                <input class="form-check-input" name="country1" type="checkbox" value="한국" id="4">
+                <label class="form-check-label" for="4" >한국&nbsp;</label>
+                
+                <input class="form-check-input" name="country2" type="checkbox" value="일본" id="5">
+                <label class="form-check-label" for="5">일본&nbsp;</label>
+                
+                <input class="form-check-input" name="country3" type="checkbox" value="중국" id="6">
+                <label class="form-check-label" for="6">중국&nbsp;</label>
+                
+                <input class="form-check-input" name="country4" type="checkbox" value="서양" id="7">
+                <label class="form-check-label" for="7">서양&nbsp;</label>
+
+                <input class="form-check-input" name="country5" type="checkbox" value="기타" id="8">
+                <label class="form-check-label" for="8">기타</label>
+
+                <input class="form-check-input" name="country_not" type="checkbox" value="True" id="country_not">
+                <label class="form-check-label" for="country_not">not</label>
+
+                <hr/>
+            </div>
+
+            <div class="check_age">
+                <small>나이&nbsp;</small>
+
+                <input class="form-check-input" name="age1"  type="checkbox" value="어림" id="9">
+                <label class="form-check-label" for="9">어림&nbsp;</label>
+
+                <input class="form-check-input" name="age2"  type="checkbox" value="학생" id="10">
+                <label class="form-check-label" for="10">학생&nbsp;</label>
+
+                <input class="form-check-input" name="age3"  type="checkbox" value="아가씨" id="11">
+                <label class="form-check-label" for="11">아가씨&nbsp;</label>
+
+                <input class="form-check-input" name="age4"  type="checkbox" value="아줌마" id="12">
+                <label class="form-check-label" for="12">아줌마&nbsp;</label>
+
+                <input class="form-check-input" name="age5"  type="checkbox" value="많음" id="13">
+                <label class="form-check-label" for="13">많음&nbsp;</label>
+
+                <input class="form-check-input" name="age_not" type="checkbox" value="True" id="age_not">
+                <label class="form-check-label" for="age_not">not</label>
+
+                <hr/>
+            </div>
+
+            <div class="check_face">
+                <small >얼굴&nbsp;</small>
+                <input class="form-check-input" name="face1"  type="checkbox" value="선명" id="14">
+                <label class="form-check-label" for="14">선명&nbsp;</label>
+
+                <input class="form-check-input" name="face2"  type="checkbox" value="흐릿" id="15">
+                <label class="form-check-label" for="15">흐릿&nbsp;</label>
+
+                <input class="form-check-input" name="face_not" type="checkbox" value="True" id="face_not">
+                <label class="form-check-label" for="face_not">not</label>
+
+                <hr/>
+            </div>
+
+            <div class="check_look">
+                <small>외모&nbsp;</small>
+                <input class="form-check-input" name="look1"  type="checkbox" value="마름" id="17">
+                <label class="form-check-label" for="17">마름&nbsp;</label>
+
+                <input class="form-check-input" name="look2"  type="checkbox" value="보통" id="18">
+                <label class="form-check-label" for="18">보통&nbsp;</label>
+
+
+                <input class="form-check-input" name="look3"  type="checkbox" value="뚱" id="19">
+                <label class="form-check-label" for="19">뚱&nbsp;</label>
+
+                <input class="form-check-input" name="look_not" type="checkbox" value="True" id="look_not">
+                <label class="form-check-label" for="look_not">not</label>
+
+                <hr/>
+            </div>
+
+            <div class="radio_display_quality">
+                <small >화질&nbsp;</small>
+                <input class="form-check-input" name="display_quality1" value="아주좋음" type="checkbox" id="21">
+                <label class="form-check-label" for="21" >아주좋음&nbsp;</label>
+
+                <input class="form-check-input" name="display_quality2" value="좋음" type="checkbox" value="" id="22">
+                <label class="form-check-label" for="22">좋음&nbsp;</label>
+
+                <input class="form-check-input" name="display_quality3" value="보통" type="checkbox" value="" id="23">
+                <label class="form-check-label" for="23">보통&nbsp;</label>
+
+                <input class="form-check-input" name="display_quality4" value="흐릿" type="checkbox" value="" id="24">
+                <label class="form-check-label" for="24">흐릿&nbsp;</label>
+
+                <input class="form-check-input" name="display_quality5" value="폐기" type="checkbox" value="" id="25">
+                <label class="form-check-label" for="25">폐기&nbsp;</label>
+
+                <input class="form-check-input" name="display_quality_not" type="checkbox" value="True" id="display_quality_not">
+                <label class="form-check-label" for="display_quality_not">not</label>
+                <hr/>
+            </div>
+
+            <div class="check_pussy">
+                <small>ㅂㅈ&nbsp;</small>
+                <input class="form-check-input" name="pussy1"  type="checkbox" value="선명" id="27">
+                <label class="form-check-label" for="27">선명&nbsp;</label>
+
+                <input class="form-check-input" name="pussy2"  type="checkbox" value="흐릿" id="28">
+                <label class="form-check-label" for="28">흐릿&nbsp;</label>
+
+                <input class="form-check-input" name="pussy_not" type="checkbox" value="True" id="pussy_not">
+                <label class="form-check-label" for="pussy_not">not</label>
+                <hr/>
+            </div>
+
+
+
+            <div class="advertisement">
+                <small>광고&nbsp;</small>
+                <input class="form-check-input" name="ad"  type="checkbox" value=True id="127">
+                <label class="form-check-label" for="127">있음&nbsp;</label>
+
+                <hr/>
+            </div>
+            
+            <div class="star">
+                <small>별점&nbsp;&nbsp;</small>
+                <input class="form-check-input" name="star_opt"  type="checkbox" value=True id="1127">
+                <label class="form-check-label" for="1127">선택&nbsp;</label>
+                <select class="form-select form-select-sm" name="star" aria-label=".form-select-sm example">
+                    <option selected>0</option>
+                    <option value="1">❤</option>
+                    <option value="2">❤❤</option>
+                    <option value="3">❤❤❤</option>
+                    <option value="4">❤❤❤❤</option>
+                    <option value="5">❤❤❤❤❤</option>
+                </select>
+            </div>
+
+
+
+
+            <div class="check1">
+                <input class="form-check-input" name="etc2_and" type="checkbox" value=True id="143">
+                <label class="form-check-label" for="143">and&nbsp;</label>
+                
+                <input class="form-check-input" name="school_uniform" type="checkbox" value=True id="32">
+                <label class="form-check-label" for="32">교복&nbsp;</label>
+                
+                <input class="form-check-input" name="hip" type="checkbox" value=True id="33">
+                <label class="form-check-label" for="33">엉덩이&nbsp;</label>
+
+                <input class="form-check-input" name="group" type="checkbox" value=True id="34">
+                <label class="form-check-label" for="34">단체&nbsp;</label>
+
+                <input class="form-check-input" name="pregnant" type="checkbox" value=True id="35">
+                <label class="form-check-label" for="35">임신&nbsp;</label>
+
+                <input class="form-check-input" name="conversation" type="checkbox" value=True id="36">
+                <label class="form-check-label" for="36">대화&nbsp;</label>
+
+                <input class="form-check-input" name="lesbian" type="checkbox" value=True id="37">
+                <label class="form-check-label" for="37">레즈</label>
+
+                <input class="form-check-input" name="ani" type="checkbox" value=True id="38">
+                <label class="form-check-label" for="38">만화&nbsp;</label>
+
+                <input class="form-check-input" name="oral" type="checkbox" value=True id="39">
+                <label class="form-check-label" for="39">입으로&nbsp;</label>
+
+                <input class="form-check-input" name="masturbation" type="checkbox" value=True id="40">
+                <label class="form-check-label" for="40">자위&nbsp;</label>
+
+                <input class="form-check-input" name="massage" type="checkbox" value=True id="41">
+                <label class="form-check-label" for="41">마사지&nbsp;</label>
+
+                <input class="form-check-input" name="uniform" type="checkbox" value=True id="42">
+                <label class="form-check-label" for="42">회사원&nbsp;</label>
+
+                <input class="form-check-input" name="family" type="checkbox" value=True id="43">
+                <label class="form-check-label" for="43">family&nbsp;</label>
+                
+                <hr/>
+            </div>
+
+            <div class="not_check1">
+                <small><b>NOT&nbsp;&nbsp;&nbsp;</b></small>
+                <input class="form-check-input" name="not_school_uniform" type="checkbox" value=True id="132">
+                <label class="form-check-label" for="132">교복&nbsp;</label>
+
+                <input class="form-check-input" name="not_hip" type="checkbox" value=True id="133">
+                <label class="form-check-label" for="133">엉덩이&nbsp;</label>
+
+                <input class="form-check-input" name="not_group" type="checkbox" value=True id="134">
+                <label class="form-check-label" for="134">단체&nbsp;</label>
+
+
+                <input class="form-check-input" name="not_pregnant" type="checkbox" value=True id="135">
+                <label class="form-check-label" for="135">임신&nbsp;</label>
+
+                <input class="form-check-input" name="not_conversation" type="checkbox" value=True id="136">
+                <label class="form-check-label" for="136">대화&nbsp;</label>
+
+                <input class="form-check-input" name="not_lesbian" type="checkbox" value=True id="137">
+                <label class="form-check-label" for="137">레즈</label>
+
+                <input class="form-check-input" name="not_ani" type="checkbox" value=True id="138">
+                <label class="form-check-label" for="138">만화&nbsp;</label>
+
+                <input class="form-check-input" name="not_oral" type="checkbox" value=True id="139">
+                <label class="form-check-label" for="139">입으로&nbsp;</label>
+
+                <input class="form-check-input" name="not_masturbation" type="checkbox" value=True id="140">
+                <label class="form-check-label" for="140">자위&nbsp;</label>
+
+                <input class="form-check-input" name="not_massage" type="checkbox" value=True id="141">
+                <label class="form-check-label" for="141">마사지&nbsp;</label>
+
+                <input class="form-check-input" name="not_uniform" type="checkbox" value=True id="142">
+                <label class="form-check-label" for="142">회사원&nbsp;</label>
+
+                <input class="form-check-input" name="not_family" type="checkbox" value=True id="143">
+                <label class="form-check-label" for="143">family&nbsp;</label>
+                <hr/>
+            </div>
+
+
+
+
+
+            {% if etc_kwd %}
+            {% for keyword in etc_kwd%}
+            {{keyword}},
+            {% endfor %}
+            {% endif %}
+            
+            <div class="d-flex">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <input type="text" name="keyword" value="" class="form-control input-sm" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="col">
+                        <input class="form-check-input" name="keyword_"  type="radio" value="and" id="1227" checked>
+                        <label class="form-check-label" for="1227">
+                            and&nbsp;
+                        </label>
+                        <input class="form-check-input" name="keyword_"  type="radio" value="or" id="227">
+                        <label class="form-check-label" for="227">
+                            or&nbsp;
+                        </label>
+                        <input class="form-check-input" name="keyword_not"  type="checkbox" value=True id="228">
+                        <label class="form-check-label" for="228">
+                            not&nbsp;
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
+            <button type="reset" class="btn btn-sm btn-danger">초기화</button>
+        </form>
+    </div>
+</div>
+{% endif %}

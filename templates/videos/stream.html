@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{dbid[dbid.find('/')+1:]}}</title>
+        <style>
+            video {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="eembed-responsive embed-responsive-16by9 ">
+            <video class="embed-responsive-item" width="864" controls autoplay="" loop="" muted="muted">
+                <source src="/videos/stream?dbid={{ dbid|quote }}" type="video/mp4" />
+            </video>
+        </div>
+    </body>
+</html>

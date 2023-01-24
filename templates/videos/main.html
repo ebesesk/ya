@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Videos Album</title>{% endblock %}
+
+{% block content %}
+<script src="/static/js/freezeframe.min.js"></script>
+
+<!-- Page Content -->
+
+
+{% if result %}
+        <div class="alert alert-success" role="alert">
+                {{result}}
+        </div>
+    {% endif %}
+    
+
+<div class="container-fluid mw-100 dx-0 mt-3">
+    <div class="row mw-100 dx-0">
+        {% include 'videos/items.html' %}
+    </div>
+</div>
+{% include 'videos/pagination.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/items.js"></script>
+{% endblock %}

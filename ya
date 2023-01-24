@@ -1,0 +1,2 @@
+soruce cenv/bin/activate 
+gunicorn main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --access-logfile ./gunicorn-access.log
