@@ -25,7 +25,7 @@
             {% set s=item.showtime%60 %}
             {% set bitrate='{0:,.0f}'.format(item.bitrate/1000) %}
             {% set size = '{0:,.0f}'.format(item.filesize/1000000) %}
-            <a href="test:// http://{{subdir[0]|quote}}/{{subdir[1]|quote}}" class="text-decoration-none">
+            <a href="kddddds://http://{{subdir[0]|quote}}/{{subdir[1]|quote}}" class="text-decoration-none">
                 {{item.width}}x{{item.height}} {{m}}분{{s}}초 {{bitrate}}kbps {{size}}MB  
             </a><span class="text-danger">
             {{item['cdate'].strftime('%y.%m.%d.%H:%M') if item['cdate'] != None else ' '}}

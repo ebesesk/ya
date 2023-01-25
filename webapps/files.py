@@ -19,7 +19,7 @@ from datetime import datetime
 from schemas.users import User
 from schemas.videos import VideoItem, UpdateVideo, SearchVideos
 from core.config import settings
-from apis.version1.login import oauth2_scheme, is_token, get_current_user_from_token
+from core.security import oauth2_scheme, is_token, get_current_user_from_token
 from db.session import get_db
 
 from apis.utils.videos.etc import (
