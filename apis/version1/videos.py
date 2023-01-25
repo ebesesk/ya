@@ -8,7 +8,7 @@ from fastapi_pagination import(
 from schemas.videos import VideoItem
 from db.session import get_db
 from db.repository.videos import get_all_videos
-
+from apis.utils.videos.filename import cut_filename_len
 # from db.repository.users import create_new_user
 
 router =APIRouter()
@@ -19,7 +19,10 @@ def view_all(request: Request, db: Session=Depends(get_db)):
     return paginate(videos)
 
 
+# @router.get('/cut_filename')
+# def cut_filename(request: Request, db:Session=Depends(get_db)):
+#     cut_filename_len(db)
+#     return
 
-
-
+ 
 add_pagination(router)

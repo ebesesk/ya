@@ -10,6 +10,19 @@ from datetime import datetime
 from core.config import settings
 from db.models.videos import Video
 
+
+def update_dbid(db:Session, dbid_0, dbid_1):
+    video = db.query(Video).filter(Video.dbid == dbid_0).first()
+    video.dbid = dbid_1
+    db.commit()
+    db.refresh(video)
+    
+    return video
+    
+
+def get_dbid(db: Session, dbid):
+    return db.query(Video).filter(Video.dbid == dbid).all()
+
 def get_test2(db: Session):
     return db.query(Video).filter(Video.dbid.like('%' + 'test2/' + '%')).all()
 

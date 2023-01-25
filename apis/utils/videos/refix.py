@@ -10,7 +10,16 @@ from pathlib import Path
 import subprocess
 from pprint import pprint
 from datetime import datetime
-import shutil 
+# import shutil 
+
+from fastapi import  Depends
+# from sqlalchemy.orm import Session
+import os, shutil
+import sqlalchemy
+from db.session import get_db
+from db.repository import videos as videos_crud
+# from core.config import settings
+
 
 from db.repository.videos import del_video_dbid, get_all_dbid, create_new_video
 from core.config import settings
@@ -25,6 +34,7 @@ WEBP: str = settings.WEBP           # "webp/"
 FRAME_MIN = settings.FRAME_MIN
 FRAME_MAX = settings.FRAME_MAX
 GIF_SIZE = settings.GIF_SIZE
+
 
 
 def print_dict(d):
@@ -298,9 +308,79 @@ def del_viedo(dbid):
         return f'파일 없음  {src}'
 
 
+def cut_filename_len(db: Session = Depends(get_db)):
+    # db.rollback()
+    # videos = videos_crud.get_all_videos(db)
+    dbid = [i.dbid for i in videos_crud.get_all_videos(db)]
+    # print(dbid)
+    videos = [settings.ROOT_DIR + i.dbid for i in videos_crud.get_all_videos(db)]
+    gifs = []
+    webps = []
+    # print(dbid)
+    j = 0
+    for i in dbid:
+        # print(i)
+        title = i[i.find('/')+1:i.rfind('.')]
+        # print(_prepix, '     ', title, '     ', _suffix, '     ', i)
+        if len(title) > 100:
+            j = j + 1
+            print(j, '======================')
+            _suffix = i[i.rfind('.'):]
+            _prepix = i[:i.find('/')+1]
+            # print(title, '\n', i, '\n', _suffix)
+            # dbid = i
+            # video = settings.ROOT_DIR + i
+            dbid = i
+            _dbid = _prepix + title[:100] + _suffix
+            video = settings.ROOT_DIR + _prepix + title + _suffix
+            _video = settings.ROOT_DIR + _prepix + title[:100] + _suffix
+            video_dir = settings.ROOT_DIR + _prepix
+            gif = settings.ROOT_DIR + _prepix + settings.GIF + title + '.gif'
+            _gif = settings.ROOT_DIR + _prepix + settings.GIF + title[:100] + '.gif'
+            gif_dir = settings.ROOT_DIR + _prepix + settings.GIF
+            webp = settings.ROOT_DIR + _prepix + settings.WEBP + title + '.webp'
+            _webp = settings.ROOT_DIR + _prepix + settings.WEBP + title[:100] + '.webp'
+            webp_dir =settings.ROOT_DIR + _prepix + settings.WEBP
+            if ((title+_suffix) in os.listdir(video_dir)) and ((title+'.gif')in os.listdir(gif_dir)) and ((title+'.webp')in os.listdir(webp_dir)):
+                try:
+                    print(' dbid' + dbid, '\n_dbid', _dbid, '\nvideo', video, '\n_video', _video, '\ngif', gif, '\n_gif', _gif, '\nwebp', webp, '\n_webp', _webp, '\n\n')
+                    print(j)
+                    n = videos_crud.update_dbid(dbid_0=dbid, dbid_1=_dbid, db=db)
+                    print(n.dbid)
+                    shutil.move(video, _video)
+                    shutil.move(gif, _gif)
+                    shutil.move(webp, _webp)
+                except sqlalchemy.exc.PendingRollbackError:
+                    db.rollback()
+                    raise
+                except sqlalchemy.exc.IntegrityError:
+                    dbid = i
+                    _dbid = _prepix + title[:97] + '1' + _suffix
+                    video = settings.ROOT_DIR + _prepix + title + _suffix
+                    _video = settings.ROOT_DIR + _prepix + title[:97] + '1' + _suffix
+                    video_dir = settings.ROOT_DIR + _prepix
+                    gif = settings.ROOT_DIR + _prepix + settings.GIF + title + '.gif'
+                    _gif = settings.ROOT_DIR + _prepix + settings.GIF + title[:97] + '1' + '.gif'
+                    gif_dir = settings.ROOT_DIR + _prepix + settings.GIF
+                    webp = settings.ROOT_DIR + _prepix + settings.WEBP + title + '.webp'
+                    _webp = settings.ROOT_DIR + _prepix + settings.WEBP + title[:97] + '1' + '.webp'
+                    webp_dir =settings.ROOT_DIR + _prepix + settings.WEBP
+                    n = videos_crud.update_dbid(dbid_0=dbid, dbid_1=_dbid, db=db)
+                    print(n.dbid)
+                    shutil.move(video, _video)
+                    shutil.move(gif, _gif)
+                    shutil.move(webp, _webp)
+                    break
+    print('end')    
 
 
-def refix_video(db:Session):
+
+
+
+def refix_video(db:Session = Depends(get_db)):
+    
+    cut_filename_len(db)
+    
     videos = get_dbid('')
     _videos = [i[:i.rfind('.')] for i in videos]
     gif_videos = get_dbid('/' + GIF)

@@ -19,7 +19,7 @@ class Settings:
     GIF_SIZE:int = 480              # gif 가로크기
 
     PAGE: int = 10                  # pagination
-    _PAGESIZE: int = 18             # pagination 
+    _PAGESIZE: int = 20             # pagination 
     RESOLUTION_HIGHT = 560000       # 864 * 648 = 559,872
     RESOLUTION_LOW = 76000          # 360 * 240 = 86,400
 
